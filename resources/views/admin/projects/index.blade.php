@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mt-5">
+    <a class="btn btn-info mb-5" href="{{route('admin.projects.create')}}">Create a new project</a>
     <div class="row gx-4 gy-3">
         @foreach ($projects as $project)
             
