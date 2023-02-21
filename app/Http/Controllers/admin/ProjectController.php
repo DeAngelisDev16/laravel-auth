@@ -58,12 +58,15 @@ class ProjectController extends Controller
 
         $newData = $request->all();
         $newProject = new Project();
+        $newData['slug'] = Str::slug($newData['title']);
         $newProject->title = $newData['title'];
         $newProject->description = $newData['description'];
         $newProject->github_reference = $newData['github_reference'];
         $newProject->save();
         return redirect()->route('admin.projects.show', $newProject->id);
     }
+
+
 
 
     /**
