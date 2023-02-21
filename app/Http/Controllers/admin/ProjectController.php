@@ -50,7 +50,7 @@ class ProjectController extends Controller
             [
                 'title.required' => 'Nel titolo devi inserire almeno 5 caratteri',
                 'description.required' => 'Inserisci una descrizione valida, composta da almeno 20 caratteri',
-                'image.required' => 'Inserisci un URL Github valido',
+                'github_reference.required' => 'Inserisci un URL Github valido',
 
 
             ]
@@ -60,7 +60,7 @@ class ProjectController extends Controller
         $newProject = new Project();
         $newProject->title = $newProject['title'];
         $newProject->description = $newProject['description'];
-        $newProject->image = $newProject['image'];
+        $newProject->github_reference = $newProject['github_reference'];
         $newProject->save();
         return redirect()->route('admin.projects.show', $newProject->id);
     }

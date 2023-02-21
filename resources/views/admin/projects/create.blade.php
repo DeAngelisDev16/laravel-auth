@@ -5,7 +5,7 @@
     <h3>
         Fill the following form to add a new project:
     </h3>
-    <form action="{{route('admin.projects.store')}}">
+    <form action="{{route('admin.projects.store')}}" method="POST">
         @csrf
 
         @if ($errors->any())
