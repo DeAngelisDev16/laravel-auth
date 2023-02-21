@@ -39,7 +39,7 @@ class ProjectController extends Controller
     {
         $request->validate(
             [
-                'title' => 'required|min:5|max:100',
+                'title' => 'required|min:5|max:50',
                 'description' => 'required|min:20',
                 'github_reference' => 'required|min:10',
 
@@ -56,11 +56,11 @@ class ProjectController extends Controller
             ]
         );
 
-        $newProject = $request->all();
+        $newData = $request->all();
         $newProject = new Project();
-        $newProject->title = $newProject['title'];
-        $newProject->description = $newProject['description'];
-        $newProject->github_reference = $newProject['github_reference'];
+        $newProject->title = $newData['title'];
+        $newProject->description = $newData['description'];
+        $newProject->github_reference = $newData['github_reference'];
         $newProject->save();
         return redirect()->route('admin.projects.show', $newProject->id);
     }
