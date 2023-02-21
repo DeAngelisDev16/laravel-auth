@@ -11,7 +11,7 @@
                 <pre>{{$project->github_reference}}</pre>
                 <div>
 
-                    <a class="btn btn-info" href="">Show</a>
+                    <a class="btn btn-info" href="{{route('admin.projects.show', $project->id)}}">Show</a>
                     <a class="btn btn-warning" href="">Edit</a>
                     <a class="btn btn-danger" href="">Delete</a>
                 </div>
