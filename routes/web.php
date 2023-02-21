@@ -21,9 +21,11 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     function () {
-        Route::get('/dashboard', [ProjectController::class, 'index'])->name('dashboard');
+        //Route::get('/dashboard', [ProjectController::class, 'index'])->name('dashboard');
+        Route::resource('/projects', ProjectController::class);
     }
 );
+
 
 
 
