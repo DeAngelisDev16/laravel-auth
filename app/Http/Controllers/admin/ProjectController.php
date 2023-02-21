@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -58,7 +59,7 @@ class ProjectController extends Controller
 
         $newData = $request->all();
         $newProject = new Project();
-        $newData['slug'] = Str::slug($newData['title']);
+        $newProject->slug = Str::slug($newData['title']);
         $newProject->title = $newData['title'];
         $newProject->description = $newData['description'];
         $newProject->github_reference = $newData['github_reference'];
