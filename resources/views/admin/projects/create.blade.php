@@ -6,6 +6,24 @@
         Fill the following form to add a new project:
     </h3>
     <form action="{{route('admin.projects.store')}}">
+        @csrf
+
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                    
+                @foreach ($errors->all() as $error)
+                <li>
+                    {{$error}}
+                </li>
+                
+                @endforeach
+                
+            </ul>
+            
+        </div>
+        @endif
+                
         <div class="mb-3">
           
           <input type="text" class="form-control" placeholder="Add project title" name="title" value="{{old('title')}}" >
