@@ -136,7 +136,7 @@ class ProjectController extends Controller
      * @param  Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy($project)
+    public function destroy(Project $project)
     {
 
         $project->delete();
