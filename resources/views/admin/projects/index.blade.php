@@ -14,8 +14,17 @@
 
                     <a class="btn btn-info" href="{{route('admin.projects.show', $project->id)}}">Show</a>
                     <a class="btn btn-warning" href="{{route('admin.projects.edit', $project->id)}}">Edit</a>
-                    <a class="btn btn-danger" href="">Delete</a>
+                    <form action="{{route('admin.projects.destroy', $project->id)}}" class="d-inline-block" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">
+                            Delete
+                        </button>
+                    </form>
                 </div>
+
+
+                   
 
 
                 
