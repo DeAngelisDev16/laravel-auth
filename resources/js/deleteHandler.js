@@ -17,7 +17,8 @@ deleteForms.forEach((formElement) => {
                     Swal.fire(
                         'Deleted!',
                         'Your file has been deleted.',
-                        'success'
+                        'success',
+
                     )
             }
         })

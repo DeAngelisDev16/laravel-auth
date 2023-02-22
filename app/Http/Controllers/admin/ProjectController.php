@@ -40,7 +40,7 @@ class ProjectController extends Controller
     {
         $request->validate(
             [
-                'title' => 'required|min:5|max:50',
+                'title' => 'required|min:5|max:50|unique:projects,title',
                 'description' => 'required|min:20',
                 'github_reference' => 'required|min:10',
 
@@ -50,6 +50,7 @@ class ProjectController extends Controller
             ],
             [
                 'title.required' => 'Nel titolo devi inserire almeno 5 caratteri',
+                'title.unique' => 'Il progetto risulta già esistente',
                 'description.required' => 'Inserisci una descrizione valida, composta da almeno 20 caratteri',
                 'github_reference.required' => 'Inserisci un URL Github valido',
 
@@ -103,7 +104,7 @@ class ProjectController extends Controller
     {
         $request->validate(
             [
-                'title' => 'required|min:5|max:50',
+                'title' => 'required|min:5|max:50|unique:projects,title',
                 'description' => 'required|min:20',
                 'github_reference' => 'required|min:10',
 
@@ -113,6 +114,7 @@ class ProjectController extends Controller
             ],
             [
                 'title.required' => 'Nel titolo devi inserire almeno 5 caratteri',
+
                 'description.required' => 'Inserisci una descrizione valida, composta da almeno 20 caratteri',
                 'github_reference.required' => 'Inserisci un URL Github valido',
 
@@ -124,6 +126,7 @@ class ProjectController extends Controller
         //$project = new Project();
         $project->slug = Str::slug($newData['title']);
         $project->title = $newData['title'];
+
         $project->description = $newData['description'];
         $project->github_reference = $newData['github_reference'];
         $project->update();
