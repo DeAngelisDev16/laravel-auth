@@ -1,5 +1,5 @@
 
-    <form action="{{route($routeAddress)}}" method="POST">
+    <form action="{{route($routeAddress, $project)}}" method="POST">
         @csrf
         @method($method)
 
