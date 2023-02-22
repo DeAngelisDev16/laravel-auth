@@ -96,12 +96,38 @@ class ProjectController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Project $project)
     {
-        //
+        $request->validate(
+            [
+                'title' => 'required|min:5|max:50',
+                'description' => 'required|min:20',
+                'github_reference' => 'required|min:10',
+
+
+
+
+            ],
+            [
+                'title.required' => 'Nel titolo devi inserire almeno 5 caratteri',
+                'description.required' => 'Inserisci una descrizione valida, composta da almeno 20 caratteri',
+                'github_reference.required' => 'Inserisci un URL Github valido',
+
+
+            ]
+        );
+
+        $newData = $request->all();
+        //$project = new Project();
+        $project->slug = Str::slug($newData['title']);
+        $project->title = $newData['title'];
+        $project->description = $newData['description'];
+        $project->github_reference = $newData['github_reference'];
+        $project->update();
+        return redirect()->route('admin.projects.show', $project->id);
     }
 
     /**
