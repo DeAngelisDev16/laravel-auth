@@ -44,6 +44,7 @@ class ProjectController extends Controller
                 'title' => 'required|min:5|max:50|unique:projects,title',
                 'description' => 'required|min:20',
                 'github_reference' => 'required|min:10',
+                'image' => 'required|image'
 
 
 
@@ -65,6 +66,7 @@ class ProjectController extends Controller
         $newProject->title = $newData['title'];
         $newProject->description = $newData['description'];
         $newProject->github_reference = $newData['github_reference'];
+        $newProject->image = Storage::put('uploads', $newData['image']);
         $newProject->save();
         return redirect()->route('admin.projects.show', $newProject->id);
     }
@@ -109,6 +111,8 @@ class ProjectController extends Controller
                 'title' => 'required|min:5|max:50|unique:projects,title',
                 'description' => 'required|min:20',
                 'github_reference' => 'required|min:10',
+                'image' => 'required|image'
+
 
 
 
