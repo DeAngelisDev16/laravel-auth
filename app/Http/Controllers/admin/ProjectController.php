@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -79,6 +80,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+        //dd($project);
         return view('admin.projects.show', compact('project'));
     }
 

@@ -1,5 +1,5 @@
 
-    <form action="{{route($routeAddress, $project)}}" method="POST">
+    <form action="{{route($routeAddress, $project)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method($method)
 
@@ -32,6 +32,10 @@
           
             <input type="text" class="form-control" placeholder="Add project description" name="description" value="{{old('description', $project->description)}}" >
         </div>
+        <div class="mb-3">
+          
+          <input type="file" class="form-control"   name="image" value="{{old('image', $project->image)}}" >
+      </div>
         
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
