@@ -66,7 +66,7 @@ class ProjectController extends Controller
         $newProject->title = $newData['title'];
         $newProject->description = $newData['description'];
         $newProject->github_reference = $newData['github_reference'];
-        $newProject->image = Storage::put('uploads', $newData['image']);
+        $newProject->image = Storage::put('storage.uploads', $newData['image']);
         $newProject->save();
         return redirect()->route('admin.projects.show', $newProject->id);
     }
@@ -108,7 +108,7 @@ class ProjectController extends Controller
     {
         $request->validate(
             [
-                'title' => 'required|min:5|max:50|unique:projects,title',
+                'title' => 'required|min:5|max:50',
                 'description' => 'required|min:20',
                 'github_reference' => 'required|min:10',
                 'image' => 'required|image'
@@ -132,6 +132,7 @@ class ProjectController extends Controller
         //$project = new Project();
         $project->slug = Str::slug($newData['title']);
         $project->title = $newData['title'];
+        $project->image = Storage::put('storage.uploads', $newData['image']);
 
         $project->description = $newData['description'];
         $project->github_reference = $newData['github_reference'];
