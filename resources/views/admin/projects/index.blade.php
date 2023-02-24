@@ -9,6 +9,7 @@
         <div class="col-4">
             <div class="card">
                 <h4>{{$project->title}}</h4>
+                <img src="{{asset('storage/'. $project->image)}}" alt="placeholder">
                 <pre>{{$project->github_reference}}</pre>
                 <div>
 
