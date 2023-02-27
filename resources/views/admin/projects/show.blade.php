@@ -5,7 +5,7 @@
     <div class="card p-3">
         <h2>{{$project->title}}</h2>
         <img src="{{asset('storage/'. $project->image)}}" alt="placeholder">
-        <pre>{{$project->github_reference}}</pre>
+        <pre>{{$project->author}}</pre>
         <p>{{$project->description}}</p>
 
 
