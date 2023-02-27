@@ -132,7 +132,7 @@ class ProjectController extends Controller
         //$project = new Project();
         $project->slug = Str::slug($newData['title']);
         $project->title = $newData['title'];
-        $project->image = Storage::put('storage.uploads', $newData['image']);
+        $project->image = Storage::put('uploads', $newData['image']);
 
         $project->description = $newData['description'];
         $project->github_reference = $newData['github_reference'];
@@ -148,6 +148,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+
+        //$data['thumb'] = Storage::delete('imgs/', $project->image);
+
 
         $project->delete();
         return redirect()->route('admin.projects.index');

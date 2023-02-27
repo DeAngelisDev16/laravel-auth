@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+
+
+    public function isImageAUrl()
+    {
+        return filter_var($this->image, FILTER_VALIDATE_URL);
+    }
 }
