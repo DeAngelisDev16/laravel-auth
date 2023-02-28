@@ -149,7 +149,7 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
 
-        //$data['thumb'] = Storage::delete('imgs/', $project->image);
+        $data['thumb'] = Storage::delete('imgs/', $project->image);
 
 
         $project->delete();
